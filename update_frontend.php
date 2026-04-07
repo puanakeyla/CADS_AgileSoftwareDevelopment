@@ -61,9 +61,9 @@ function e(string $value): string
     <main class="wrap">
         <nav class="nav">
             <a href="index.php">Board</a>
-            <a href="create.php">Create Task</a>
-            <a class="active" href="update.php">Update Task</a>
-            <a href="delete.php">Delete Task</a>
+            <a href="create_frontend.php">Create Task</a>
+            <a class="active" href="update_frontend.php">Update Task</a>
+            <a href="delete_frontend.php">Delete Task</a>
         </nav>
 
         <section class="box">
@@ -91,7 +91,7 @@ function e(string $value): string
                             <td><?= e((string) $task['title']) ?></td>
                             <td><?= e((string) $task['status']) ?></td>
                             <td>
-                                <form method="post" action="crud/update.php">
+                                <form method="post" action="update_backend.php">
                                     <input type="hidden" name="id" value="<?= (int) $task['id'] ?>">
                                     <input name="title" value="<?= e((string) $task['title']) ?>" required>
                                     <select name="status">

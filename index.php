@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once __DIR__ . 'task_service.php';
+require_once __DIR__ . '/task_service.php';
 
 $tasks = get_tasks();
 $message = $_GET['message'] ?? '';
@@ -229,9 +229,9 @@ function e(string $value): string
 
     <section class="navbar">
         <a class="active" href="index.php">Board</a>
-        <a href="create.php">Create Task</a>
-        <a href="update.php">Update Task</a>
-        <a href="delete.php">Delete Task</a>
+        <a href="create_frontend.php">Create Task</a>
+        <a href="update_frontend.php">Update Task</a>
+        <a href="delete_frontend.php">Delete Task</a>
     </section>
 
     <div class="board">
@@ -373,9 +373,12 @@ function e(string $value): string
                 payload.set('title', title);
                 payload.set('status', status);
 
-                fetch('update.php', {
+                fetch('update_backend.php', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
                     body: payload.toString()
                 }).catch(function () {
                     window.alert('Gagal menyimpan perpindahan card. Coba refresh halaman.');

@@ -179,9 +179,9 @@ function e(string $value): string
     <main class="page">
         <nav class="navbar">
                 <a href="index.php">Board</a>
-                <a class="active" href="create.php">Create Task</a>
-                <a href="update.php">Update Task</a>
-                <a href="delete.php">Delete Task</a>
+            <a class="active" href="create_frontend.php">Create Task</a>
+            <a href="update_frontend.php">Update Task</a>
+            <a href="delete_frontend.php">Delete Task</a>
         </nav>
 
         <section class="container">

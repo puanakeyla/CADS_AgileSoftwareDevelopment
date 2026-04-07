@@ -60,9 +60,9 @@ function e(string $value): string
     <main class="wrap">
         <nav class="nav">
             <a href="index.php">Board</a>
-            <a href="create.php">Create Task</a>
-            <a href="update.php">Update Task</a>
-            <a class="active" href="delete.php">Delete Task</a>
+            <a href="create_frontend.php">Create Task</a>
+            <a href="update_frontend.php">Update Task</a>
+            <a class="active" href="delete_frontend.php">Delete Task</a>
         </nav>
 
         <section class="box">
@@ -90,7 +90,7 @@ function e(string $value): string
                             <td><?= e((string) $task['title']) ?></td>
                             <td><?= e((string) $task['status']) ?></td>
                             <td>
-                                <form method="post" action="crud/delete.php" onsubmit="return confirm('Hapus task ini?')">
+                                <form method="post" action="delete_backend.php" onsubmit="return confirm('Hapus task ini?')">
                                     <input type="hidden" name="id" value="<?= (int) $task['id'] ?>">
                                     <button type="submit">Delete</button>
                                 </form>
