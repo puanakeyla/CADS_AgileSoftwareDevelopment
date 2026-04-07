@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once __DIR__ . '/crud/task_service.php';
+require_once __DIR__ . '/task_service.php';
 
 $tests = 0;
 $passed = 0;
