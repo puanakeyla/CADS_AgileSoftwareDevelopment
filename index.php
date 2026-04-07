@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once __DIR__ . '/crud/task_service.php';
+require_once __DIR__ . 'task_service.php';
 
 $tasks = get_tasks();
 $message = $_GET['message'] ?? '';
@@ -373,7 +373,7 @@ function e(string $value): string
                 payload.set('title', title);
                 payload.set('status', status);
 
-                fetch('crud/update.php', {
+                fetch('update.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: payload.toString()
