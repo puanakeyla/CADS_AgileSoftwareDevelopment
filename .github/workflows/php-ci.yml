@@ -1,0 +1,45 @@
+name: PHP CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+  pull_request:
+    branches:
+      - main
+      - master
+      - develop
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Display PHP version
+        run: php -v
+
+      - name: Lint all PHP files
+        run: |
+          if [ -n "$(find . -name '*.php' -not -path './.git/*' -print -quit)" ]; then
+            find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n 1 php -l
+          else
+            echo "No PHP files found, skipping syntax check"
+          fi
+
+      - name: Run test suite
+        run: |
+          if [ -f test.php ]; then
+            php test.php
+          else
+            echo "test.php not found, skipping automated tests"
+          fi
