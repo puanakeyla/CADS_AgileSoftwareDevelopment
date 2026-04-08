@@ -214,7 +214,7 @@ function e(string $value): string
 </head>
 <body>
     <header class="topbar">
-        <h1>SISTEM MANAJEMEN CADS</h1>
+        <h1>SISTEM MANAJEMEN TASK - AGILE BOARD</h1>
         <span class="chip">Total Task: <?= count($tasks) ?></span>
         <span class="chip">Mode: Trello Style</span>
     </header>
